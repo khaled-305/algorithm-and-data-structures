@@ -72,3 +72,12 @@ printList(head); // Output: 1 -> 2 -> 3 -> 4 -> 5
 const reversedHead = reverseList(head);
 console.log("Reversed List:");
 printList(reversedHead); // Output: 5 -> 4 -> 3 -> 2 -> 1
+
+
+// Time Complexity: O(n) – We traverse the linked list once.
+
+// Space Complexity: O(1) – We use only a few pointers.
+
+// Data Structure Used: Singly linked list.
+
+// Technique Used: Pointer manipulation.
