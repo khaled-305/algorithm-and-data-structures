@@ -24,31 +24,32 @@ Explanation:
 */
 
 function isValid(s) {
-    const stack = [];
-    const bracketPairs = {
-        ")": "(",
-        "}": "{",
-        "]": "["
-    };
+  const stack = [];
 
-    for (const char of s) {
-        if (["(", "{", "["].includes(char)) {
-            stack.push(char); // Push opening brackets onto the stack
-        } else {
-            const top = stack.pop(); // Pop the top element from the stack
-            if (top !== bracketPairs[char]) {
-                return false; // Mismatched brackets
-            }
-        }
+  const bracketPairs = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (const char of s) {
+    if (["(", "{", "["].includes(char)) {
+      stack.push(char); // Push opening brackets onto the stack
+    } else {
+      const top = stack.pop(); // Pop the top element from the stack
+      
+      if (top !== bracketPairs[char]) {
+        return false; // Mismatched brackets
+      }
     }
+  }
 
-    return stack.length === 0; // If the stack is empty, the string is valid
+  return stack.length === 0; // If the stack is empty, the string is valid
 }
 
 // Example usage:
 console.log(isValid("()[]{}")); // Output: true
-console.log(isValid("([)]"));   // Output: false
-
+console.log(isValid("([)]")); // Output: false
 
 // Time Complexity: O(n) – We traverse the string once.
 // Space Complexity: O(n) – In the worst case, the stack could store all opening brackets.
